@@ -1,0 +1,62 @@
+---
+import Section from './Section.astro';
+import { experience } from '../data/experience';
+---
+
+<Section id="experience" title="Experience">
+  <ol class="space-y-14">
+    {
+      experience.map((role) => (
+        <li>
+          <article>
+            <header class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <h3 class="text-lg font-semibold tracking-tight">
+                {role.title}
+                <span class="font-normal text-muted"> · {role.company}</span>
+              </h3>
+              <p class="shrink-0 text-sm text-subtle tabular-nums">{role.period}</p>
+            </header>
+            <p class="mt-1 text-sm text-subtle">{role.location}</p>
+            <p class="mt-4 leading-relaxed text-muted">{role.summary}</p>
+
+            {role.points && (
+              <ul class="mt-4 space-y-2.5">
+                {role.points.map((point) => (
+                  <li class="relative pl-5 leading-relaxed text-muted before:absolute before:top-[0.7em] before:left-0 before:h-px before:w-2.5 before:bg-accent">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {role.engagements && (
+              <div class="mt-6 space-y-5 border-l border-line pl-5">
+                {role.engagements.map((engagement) => (
+                  <div>
+                    <p class="flex items-baseline justify-between gap-4">
+                      <span class="font-medium">{engagement.client}</span>
+                      <span class="text-xs text-subtle tabular-nums">{engagement.period}</span>
+                    </p>
+                    <ul class="mt-2 space-y-1.5">
+                      {engagement.points.map((point) => (
+                        <li class="text-[15px] leading-relaxed text-muted">{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {role.tags && (
+              <ul class="mt-5 flex flex-wrap gap-1.5" aria-label="Technologies">
+                {role.tags.map((tag) => (
+                  <li class="rounded-full bg-surface px-2.5 py-1 text-xs text-muted">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </article>
+        </li>
+      ))
+    }
+  </ol>
+</Section>

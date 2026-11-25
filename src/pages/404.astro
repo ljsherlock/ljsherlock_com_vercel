@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Page not found — Lewis Sherlock" type="website">
+  <Header />
+  <main id="main" class="mx-auto grid min-h-[60dvh] max-w-5xl place-content-center px-6 text-center">
+    <p class="text-sm text-subtle tabular-nums">404</p>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight">This page doesn’t exist.</h1>
+    <a href="/" class="link-underline mt-6 text-muted hover:text-fg">Back to home</a>
+  </main>
+  <Footer />
+</BaseLayout>

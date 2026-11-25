@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --bg: oklch(0.99 0.002 90);
+  --surface: oklch(0.97 0.003 90);
+  --fg: oklch(0.2 0.006 270);
+  --muted: oklch(0.45 0.008 270);
+  --subtle: oklch(0.6 0.008 270);
+  --line: oklch(0.91 0.004 270);
+  --accent: oklch(0.58 0.14 45);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: oklch(0.16 0.004 270);
+  --surface: oklch(0.2 0.005 270);
+  --fg: oklch(0.95 0.003 90);
+  --muted: oklch(0.72 0.006 270);
+  --subtle: oklch(0.56 0.006 270);
+  --line: oklch(0.27 0.006 270);
+  --accent: oklch(0.76 0.13 55);
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 25%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease, color 0.2s ease;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import headshot from '../assets/headshot.jpg';
+import { profile, highlights } from '../data/profile';
+
+const secondary =
+  'inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm font-medium transition-colors hover:border-fg/40';
+---
+
+<section class="pt-16 pb-16 sm:pt-24 sm:pb-24">
+  <div class="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between md:gap-16">
+    <div class="max-w-2xl">
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-xs text-muted">
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/60 motion-reduce:hidden"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-emerald-500"></span>
+        </span>
+        {profile.availability}
+      </p>
+      <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
+        {profile.name}
+      </h1>
+      <p class="mt-3 text-lg font-medium text-muted sm:text-xl">{profile.role}</p>
+      <p class="mt-6 max-w-xl text-base leading-relaxed text-pretty text-muted sm:text-lg">
+        {profile.tagline}
+      </p>
+      <p class="mt-4 flex items-center gap-1.5 text-sm text-subtle">
+        <Icon name="pin" class="size-4" />
+        {profile.location} · {profile.yearsExperience} years experience
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href={profile.cvPath}
+          class="inline-flex items-center gap-2 rounded-full bg-fg px-4 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-85"
+        >
+          <Icon name="download" />
+          Download CV
+        </a>
+        <a href={profile.social.linkedin} class={secondary} rel="me noopener" target="_blank">
+          <Icon name="linkedin" />
+          LinkedIn
+        </a>
+        <a href={profile.social.github} class={secondary} rel="me noopener" target="_blank">
+          <Icon name="github" />
+          GitHub
+        </a>
+        <a href={`mailto:${profile.email}`} class={secondary}>
+          <Icon name="mail" />
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="relative w-36 shrink-0 sm:w-44 md:w-60">
+      <div
+        class="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-accent/25 via-transparent to-transparent blur-2xl"
+        aria-hidden="true"
+      >
+      </div>
+      <Image
+        src={headshot}
+        alt={`Portrait of ${profile.name}`}
+        widths={[288, 480, 720]}
+        sizes="(min-width: 768px) 240px, (min-width: 640px) 176px, 144px"
+        loading="eager"
+        fetchpriority="high"
+        class="aspect-square w-full rounded-[1.75rem] object-cover object-top ring-1 ring-line grayscale-[15%]"
+      />
+    </div>
+  </div>
+
+  <dl class="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+    {
+      highlights.map((item) => (
+        <div class="flex flex-col-reverse justify-end gap-1.5 bg-bg p-5 sm:p-6">
+          <dt class="text-xs leading-snug text-subtle">{item.label}</dt>
+          <dd class="text-2xl font-semibold tracking-tight tabular-nums sm:text-3xl">{item.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>
