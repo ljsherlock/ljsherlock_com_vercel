@@ -66,9 +66,13 @@ const personSchema = {
       (() => {
         const root = document.documentElement;
         root.classList.add('js');
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        root.classList.toggle('dark', stored ? stored === 'dark' : prefersDark);
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const stored = sessionStorage.getItem('theme');
+        root.classList.toggle('dark', stored ? stored === 'dark' : media.matches);
+        media.addEventListener('change', (event) => {
+          sessionStorage.removeItem('theme');
+          root.classList.toggle('dark', event.matches);
+        });
       })();
     </script>
   </head>
