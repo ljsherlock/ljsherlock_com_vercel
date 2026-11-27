@@ -9,11 +9,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Programmatic SEO engine',
-    context: 'Hello Yellow · 2025',
+    title: 'AI contact-enrichment agent',
+    context: 'Hello Yellow',
     summary:
-      'Designed and built a system that generates search-optimised event pages at scale, from data model to rendering and indexing.',
-    outcome: '0 → 300+ indexed pages in weeks, 2,000+ daily impressions in three months.',
+      'An event-marketing agent that turns an attendee list into one job per contact, enriches each through Apollo and LLMs, scores it against an ICP with a confidence level, and streams every tool call to a live UI. Runs on per-user Cloud Tasks queues feeding Cloud Run workers, with retries built in.',
+    outcome: 'Idea to production in under two weeks; 50,000+ contacts processed.',
+    tags: ['Python', 'GPT-5', 'Gemini', 'Cloud Run', 'Cloud Tasks', 'Firestore'],
+  },
+  {
+    title: 'Programmatic SEO engine',
+    context: 'Hello Yellow',
+    summary:
+      'Built a system that generates search-optimised event pages at scale, plus an activation path that opens sign-in on each event and drops new accounts into a live analysis of it.',
+    outcome: '0 → 300+ indexed pages in 2–4 weeks; 2,000–3,200 daily impressions within 2–3 months.',
     tags: ['TypeScript', 'Node.js', 'Technical SEO', 'GCP'],
   },
   {

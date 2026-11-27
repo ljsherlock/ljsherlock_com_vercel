@@ -1,7 +1,7 @@
 export const skills = [
   {
     group: 'Languages',
-    items: ['TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'PHP'],
+    items: ['TypeScript', 'JavaScript (ES6+)', 'Python', 'PHP', 'HTML5', 'CSS3'],
   },
   {
     group: 'Frontend & UI',
@@ -9,11 +9,11 @@ export const skills = [
   },
   {
     group: 'Backend & Cloud',
-    items: ['Node.js', 'Express', 'REST APIs', 'Google Cloud Platform', 'Firebase', 'WordPress'],
+    items: ['Node.js', 'Express', 'REST APIs', 'Google Cloud Platform', 'Firebase', 'WordPress plugins'],
   },
   {
     group: 'AI & LLM',
-    items: ['Gemini API', 'Claude API', 'Prompt architecture', 'AI workflow integration'],
+    items: ['OpenAI API', 'Gemini API', 'Claude API', 'Agent pipelines', 'Prompt architecture', 'AI workflow integration'],
   },
   {
     group: 'Design & Product',

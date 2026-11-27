@@ -19,18 +19,19 @@ export const experience: Role[] = [
   {
     title: 'Lead Product Engineer',
     company: 'Hello Yellow',
-    period: 'Oct 2025 — Present',
+    period: 'Oct 2025 — Oct 2026',
     location: 'San Francisco, CA · Remote',
     summary:
-      'Own the complete development operation for a San Francisco startup serving roughly 500 users, reporting directly to the CEO. Took on design and backend ownership as the team streamlined.',
+      'Owned the complete development operation for a San Francisco startup, reporting directly to the CEO. Started alongside a frontend developer, then led product design and backend as the team streamlined — shipping 5+ products, mostly as sole engineer.',
     points: [
-      'Built a programmatic SEO system that scaled from zero to 300+ Google-indexed event pages in 2–4 weeks, with 150+ pages drawing impressions in a single week.',
-      'Lifted daily search impressions from near zero to 2,000–3,200 and average position to 10–12 within three months, as organic sign-ups climbed.',
-      'Deliver one cohesive product across a web app and Chrome extensions, owning full-stack implementation and maintenance.',
-      'Engineer the server-side and AI infrastructure powering core product features, from backend services to LLM integrations.',
-      'Scope features with the CEO, write technical proposals for leadership approval, and demo releases to stakeholders and clients.',
+      'Took a production AI agent pipeline from idea to production in under two weeks; it went on to process 50,000+ contacts.',
+      'Built the server path that turns an attendee list into one job per contact: the API writes each row to Firestore, a per-user Cloud Tasks queue feeds a Cloud Run worker under a concurrency cap, and failed jobs retry from the queue without resubmitting the list.',
+      'GPT-5 mini enriches each contact through Apollo and Gemini 2.5 Flash and scores it against an ICP within 12 calls, returning a confidence level. Email and LinkedIn are verified outside the model, and the same worker drafts LinkedIn messages with GPT-5.1.',
+      'Designed and built the web app on top of the pipeline, showing each tool call, confidence score and explanation on the contact while the agent is still running.',
+      'Scaled programmatic SEO from zero to 300+ Google-indexed event pages in 2–4 weeks, reaching 2,000–3,200 daily impressions within 2–3 months, with pages ranking in positions 5–15.',
+      'Proposed and shipped an activation path from those pages into the product: each article opens sign-in on its event by name, and new accounts land in a live analysis of it.',
     ],
-    tags: ['TypeScript', 'React', 'Node.js', 'GCP', 'Firebase', 'Gemini', 'Claude', 'Technical SEO'],
+    tags: ['TypeScript', 'Python', 'React', 'Cloud Run', 'Cloud Tasks', 'Firestore', 'GPT-5', 'Gemini', 'Technical SEO'],
   },
   {
     title: 'Founder & Senior Full-Stack Developer',
@@ -98,7 +99,8 @@ export const experience: Role[] = [
     points: [
       'Introduced scalable, maintainable CSS architecture at Staffcare.',
       'Created a children’s stencil-design app for a chocolate-making box set with a complex HTML5 Canvas interface.',
-      'Built custom WordPress themes, PHP (Yii) apps, microsites and email campaigns for clients across many industries.',
+      'Wrote custom WordPress plugins and PHP business logic for London agency clients and for founders on Codeable, designing and building each feature, site or web app from the brief.',
+      'Built PHP (Yii) apps, microsites and email campaigns for clients across many industries.',
     ],
   },
 ];
